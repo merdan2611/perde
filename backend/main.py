@@ -4,6 +4,9 @@ import os
 from datetime import datetime
 from typing import Optional
 
+from dotenv import load_dotenv
+load_dotenv()  # loads .env from project root (or current dir)
+
 from fastapi import Depends, FastAPI, HTTPException, Path, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
