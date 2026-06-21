@@ -60,6 +60,9 @@ button:active, .btn:active { transform: scale(0.98); }
 button:disabled, .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
 .btn-primary {
+  display: flex;
+  align-items: center;
+  
   background: var(--text-primary);
   color: var(--bg-primary);
   border: none;
