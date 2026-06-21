@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perde — My Stories</title>
+  <meta name="description" content="Your collaborative stories on Perde." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <span class="nav-logo">perde</span>
+    <div class="nav-right">
+      <span class="nav-user" id="nav-user-name"></span>
+      <button class="btn btn-ghost" id="logout-btn">logout</button>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="container">
+    <div class="section-header">
+      <h1 class="section-title">my stories</h1>
+      <button class="btn btn-primary" id="new-story-btn">+ new story</button>
+    </div>
+
+    <div class="story-list" id="story-list">
+      <div class="empty-state">loading…</div>
+    </div>
+  </main>
+
+  <!-- New story modal -->
+  <div class="modal-overlay" id="new-story-modal" role="dialog" aria-modal="true" aria-labelledby="new-story-modal-title">
+    <div class="modal">
+      <div class="modal-title" id="new-story-modal-title">new story</div>
+      <input type="text" id="new-story-title" placeholder="story title" maxlength="120" />
+      <div class="modal-error" id="new-story-error" role="alert"></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="create-story-btn">create</button>
+        <button class="btn btn-ghost" id="cancel-story-btn">cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+  <script>
+    initHomePage();
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perde — Collaborative Story Writing</title>
+  <meta name="description" content="Perde is a minimalist collaborative story writing app for pen-pal style co-authoring." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">perde</div>
+
+      <!-- Login form -->
+      <form id="login-form" class="auth-form">
+        <input id="login-email" type="email" placeholder="email" required autocomplete="email" />
+        <input id="login-password" type="password" placeholder="password" required autocomplete="current-password" />
+        <div class="form-error" id="login-error" role="alert"></div>
+        <button type="submit" class="btn btn-primary" id="login-btn">sign in</button>
+      </form>
+
+      <!-- Register form (hidden by default) -->
+      <form id="register-form" class="auth-form" style="display:none;">
+        <input id="reg-name" type="text" placeholder="display name" required autocomplete="name" />
+        <input id="reg-email" type="email" placeholder="email" required autocomplete="email" />
+        <input id="reg-password" type="password" placeholder="password (min 6 chars)" required autocomplete="new-password" />
+        <div class="form-error" id="reg-error" role="alert"></div>
+        <button type="submit" class="btn btn-primary" id="reg-btn">create account</button>
+      </form>
+
+      <div class="auth-toggle" id="auth-toggle">
+        <span id="toggle-text">no account? <span id="toggle-link">register</span></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    initAuthPage();
+  </script>
+</body>
+</html>

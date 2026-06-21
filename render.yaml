@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: perde
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    disk:
+      name: sqlite-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATABASE_URL
+        value: /data/perde.db
+      - key: RESEND_API_KEY
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: APP_URL
+        sync: false
+      - key: FROM_EMAIL
+        sync: false

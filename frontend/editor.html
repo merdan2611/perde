@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perde — Editor</title>
+  <meta name="description" content="Write and collaborate on a story in Perde." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <button class="back-btn" id="back-btn" aria-label="Back to stories">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <input type="text" class="title-input" id="story-title-input" placeholder="untitled" aria-label="Story title" />
+    <div class="nav-right">
+      <button class="btn btn-primary" id="save-btn" disabled>save</button>
+    </div>
+  </nav>
+
+  <!-- Tabs -->
+  <div class="container" style="padding-top: 0; padding-bottom: 0;">
+    <div class="tabs">
+      <button class="tab active" id="tab-write" aria-controls="panel-write">write</button>
+      <button class="tab" id="tab-history" aria-controls="panel-history">history</button>
+    </div>
+  </div>
+
+  <!-- Write panel -->
+  <div class="container" id="panel-write">
+    <!-- Conflict banner -->
+    <div class="conflict-banner" id="conflict-banner" role="alert">
+      ⚠ <span id="conflict-msg">someone edited this story. copy your text, reload, then re-apply your changes.</span>
+    </div>
+
+    <!-- Contributors -->
+    <div class="contributor-row">
+      <div class="avatar-row" id="contributor-avatars"></div>
+      <button class="btn btn-default" id="add-contributor-btn" style="font-size: 12px; padding: 5px 10px;">
+        + add contributor
+      </button>
+    </div>
+
+    <!-- Editor -->
+    <textarea
+      class="editor-textarea"
+      id="editor"
+      placeholder="begin your story here…"
+      aria-label="Story content"
+      spellcheck="true"
+    ></textarea>
+  </div>
+
+  <!-- History panel -->
+  <div class="container" id="panel-history" style="display:none;">
+    <div id="history-list">
+      <div class="empty-state">no history yet</div>
+    </div>
+  </div>
+
+  <!-- Add contributor modal -->
+  <div class="modal-overlay" id="add-contributor-modal" role="dialog" aria-modal="true" aria-labelledby="add-contributor-modal-title">
+    <div class="modal">
+      <div class="modal-title" id="add-contributor-modal-title">add contributor</div>
+      <input type="email" id="contributor-email" placeholder="contributor's email" autocomplete="email" />
+      <div class="modal-error" id="contributor-error" role="alert"></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="add-contributor-submit-btn">add</button>
+        <button class="btn btn-ghost" id="cancel-contributor-btn">cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+  <script>
+    initEditorPage();
+  </script>
+</body>
+</html>
