@@ -68,6 +68,12 @@ button:disabled, .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: n
   border: none;
   font-weight: 500;
 }
+
+#merhaba{
+  font-size: var(--text-md);
+  color: var(--text-primary);
+}
+
 .btn-primary:hover:not(:disabled) { opacity: 0.88; }
 
 .btn-default {
