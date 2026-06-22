@@ -34,14 +34,14 @@
   <div class="container" id="panel-write">
     <!-- Conflict banner -->
     <div class="conflict-banner" id="conflict-banner" role="alert">
-      ⚠ <span id="conflict-msg">someone edited this story. copy your text, reload, then re-apply your changes.</span>
+      ⚠ <span id="conflict-msg">arkadasin da su an yaziyor, istersen biraz bekle ve sonra kaydet</span>
     </div>
 
     <!-- Contributors -->
     <div class="contributor-row">
       <div class="avatar-row" id="contributor-avatars"></div>
       <button class="btn btn-default" id="add-contributor-btn" style="font-size: 12px; padding: 5px 10px;">
-        + add contributor
+        + arkadas ekle
       </button>
     </div>
 
@@ -49,7 +49,7 @@
     <textarea
       class="editor-textarea"
       id="editor"
-      placeholder="begin your story here…"
+      placeholder="hadi durma, yaz birseyler"
       aria-label="Story content"
       spellcheck="true"
     ></textarea>
@@ -65,7 +65,7 @@
   <!-- Add contributor modal -->
   <div class="modal-overlay" id="add-contributor-modal" role="dialog" aria-modal="true" aria-labelledby="add-contributor-modal-title">
     <div class="modal">
-      <div class="modal-title" id="add-contributor-modal-title">add contributor</div>
+      <div class="modal-title" id="add-contributor-modal-title">arkadas ekle</div>
       <input type="email" id="contributor-email" placeholder="contributor's email" autocomplete="email" />
       <div class="modal-error" id="contributor-error" role="alert"></div>
       <div class="modal-actions">
