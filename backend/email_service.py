@@ -50,16 +50,18 @@ async def send_edit_notification(
     print(f"[email] Sending notification to {[r['email'] for r in recipients]}")
     print(f"[email] GMAIL_USER set: {bool(_gmail_user())} | RESEND_KEY set: {bool(_resend_key())}")
 
-    if _gmail_user() and _gmail_password():
-        await _send_via_gmail(
+    if _resend_key():
+        # Resend uses HTTPS (port 443) — always works on cloud platforms
+        await _send_via_resend(
             story_title=story_title,
             editor_name=editor_name,
             recipients=recipients,
             preview=preview,
             story_url=story_url,
         )
-    elif _resend_key():
-        await _send_via_resend(
+    elif _gmail_user() and _gmail_password():
+        # Gmail SMTP — only works locally (cloud platforms block SMTP ports)
+        await _send_via_gmail(
             story_title=story_title,
             editor_name=editor_name,
             recipients=recipients,
